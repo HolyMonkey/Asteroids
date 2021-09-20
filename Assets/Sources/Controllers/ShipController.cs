@@ -64,13 +64,13 @@ public class ShipController
     private void OnFirstSlootShoot(InputAction.CallbackContext obj)
     {
         if (_firstGunSlot.CanShoot())
-            _firstGunSlot.Shoot();
+            _firstGunSlot.Shoot(_shipMovement.Forward);
     }
 
     private void OnSecondSlootShoot(InputAction.CallbackContext obj)
     {
         if (_secondGunSlot.CanShoot())
-            _secondGunSlot.Shoot();
+            _secondGunSlot.Shoot(_shipMovement.Forward);
     }
 
     private void TryRotate()
@@ -78,6 +78,6 @@ public class ShipController
         float direction = _input.Ship.Rotate.ReadValue<float>();
 
         if(direction != 0)
-            _shipMovement.Rotate(_input.Ship.Rotate.ReadValue<float>(), Time.deltaTime);
+            _shipMovement.Rotate(direction, Time.deltaTime);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Asteroids.Model
 {
@@ -21,6 +22,10 @@ namespace Asteroids.Model
 
         public override bool CanShoot() => _bullets >= _bulletsPerShot;
 
-        protected override void OnShooting() => _bullets -= _bulletsPerShot;
+        protected override Bullet GetBullet(Vector2 direction)
+        {
+            _bullets -= _bulletsPerShot;
+            return new LaserGunBullet(direction);
+        }
     }
 }

@@ -20,14 +20,14 @@ namespace CompositeRoot
 
         private void Awake()
         {
+            _baseGun = new BaseGun();
+            _laserGun = new LaserGun(10);
+
             _shipModel = new Ship(new Vector2(0.5f, 0.5f), 0);
             _shipMovement = new ShipMovement(_shipModel);
             _shipController = new ShipController(_shipMovement)
                 .BindGunToFirstSlot(_baseGun)
                 .BindGunToSecondSlot(_laserGun);
-
-            _baseGun = new BaseGun();
-            _laserGun = new LaserGun(10);
 
             _shipView.ForEach(view => view.Init(_shipModel));
             _baseGunView.Init(_baseGun);

@@ -235,7 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f2a2c3964c14e4fb489dd4c092a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectileTemplate: {fileID: 7530022156930753192, guid: 5945db22c3379bd48891ca1f8fa788e5, type: 3}
+  _bulletsTemplates:
+  - {fileID: -7950922128580916315, guid: 9ac0a761c39837c438fc2f5cbde37379, type: 3}
+  - {fileID: 4494848042936166187, guid: 5945db22c3379bd48891ca1f8fa788e5, type: 3}
   _shootingPoint: {fileID: 1724014139}
 --- !u!114 &680665658
 MonoBehaviour:
@@ -249,7 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f2a2c3964c14e4fb489dd4c092a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectileTemplate: {fileID: 6178685449458686511, guid: 9ac0a761c39837c438fc2f5cbde37379, type: 3}
+  _bulletsTemplates:
+  - {fileID: -7950922128580916315, guid: 9ac0a761c39837c438fc2f5cbde37379, type: 3}
+  - {fileID: 4494848042936166187, guid: 5945db22c3379bd48891ca1f8fa788e5, type: 3}
   _shootingPoint: {fileID: 1724014139}
 --- !u!1 &705507993
 GameObject:
