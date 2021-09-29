@@ -3,10 +3,14 @@ using UnityEngine;
 
 namespace Asteroids.Model
 {
-    public class LaserGun : BaseGun
+    public class LaserGun : DefaultGun
     {
-        private int _bullets;
         private int _bulletsPerShot;
+
+        public int Bullets { get; private set; }
+        public int MaxBullets { get; private set; }
+
+        public event Action ShotAdd;
 
         public LaserGun(int bullets, int bulletsPerShot = 1)
         {
@@ -16,16 +20,26 @@ namespace Asteroids.Model
             if (bullets <= 0)
                 throw new ArgumentOutOfRangeException(nameof(bullets));
 
-            _bullets = bullets;
+            Bullets = bullets;
+            MaxBullets = bullets;
             _bulletsPerShot = bulletsPerShot;
         }
 
-        public override bool CanShoot() => _bullets >= _bulletsPerShot;
+        public override bool CanShoot() => Bullets >= _bulletsPerShot;
 
-        protected override Bullet GetBullet(Vector2 direction)
+        public void TryAddShot()
         {
-            _bullets -= _bulletsPerShot;
-            return new LaserGunBullet(direction);
+            if (Bullets + _bulletsPerShot > MaxBullets)
+                return;
+
+            Bullets += _bulletsPerShot;
+            ShotAdd?.Invoke();
+        }
+
+        protected override Bullet GetBullet()
+        {
+            Bullets -= _bulletsPerShot;
+            return new LaserGunBullet();
         }
     }
 }

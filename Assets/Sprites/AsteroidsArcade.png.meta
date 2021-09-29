@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -5522339636744722164
     second: Laser
+  - first:
+      213: -1631521915477014264
+    second: Asteroid
+  - first:
+      213: -8758211774284209605
+    second: PartOfAsteroid
+  - first:
+      213: 2977310587539912664
+    second: Nlo
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -170,6 +179,69 @@ TextureImporter:
       bones: []
       spriteID: c0965c6eb55bc53b0800000000000000
       internalID: -5522339636744722164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1
+        width: 58
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8094ab8467bab59e0800000000000000
+      internalID: -1631521915477014264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PartOfAsteroid
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 34
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3265265bc4947680800000000000000
+      internalID: -8758211774284209605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nlo
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 195
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d773547438815920800000000000000
+      internalID: 2977310587539912664
       vertices: []
       indices: 
       edges: []

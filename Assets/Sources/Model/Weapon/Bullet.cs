@@ -5,28 +5,25 @@ namespace Asteroids.Model
 {
     public abstract class Bullet
     {
-        public readonly Vector2 Direction;
         public readonly Vector2 Size;
+        public readonly float Lifetime;
+        public readonly float Speed;
 
-        protected Bullet(Vector2 direction)
+        protected Bullet(Vector2 size, float lifetime, float speed)
         {
-            Direction = direction;
+            Size = size;
+            Lifetime = lifetime;
+            Speed = speed;
         }
     }
 
     public class LaserGunBullet : Bullet
     {
-        public LaserGunBullet(Vector2 direction) : base(direction)
-        {
-        }
+        public LaserGunBullet() : base(new Vector2(1, 100), 0.5F, 0F) { }
     }
 
     public class DefaultBullet : Bullet
     {
-        public readonly float Speed;
-
-        public DefaultBullet(Vector2 direction) : base(direction)
-        {
-        }
+        public DefaultBullet() : base(new Vector2(1, 1), 10F, 0.6F) { }
     }
 }

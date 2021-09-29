@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using static Asteroids.Model.PhysicsRouter;
+
+namespace Asteroids.Model
+{
+    public class PhysicsRecords
+    {
+        private readonly BulletsSimulation _bullets;
+        private readonly EnemiesSimulation _enemies;
+
+        public event Action GameEnd;
+
+        public PhysicsRecords(BulletsSimulation bullets, EnemiesSimulation enemies)
+        {
+            _bullets = bullets;
+            _enemies = enemies;
+        }
+
+        public IEnumerable<Record> Values()
+        {
+            yield return If((Bullet bullet, Enemy enemy) =>
+            {
+                _enemies.StopAll(enemy);
+                _bullets.StopAll(bullet);
+            });
+
+            yield return If((Bullet bullet, Asteroid asteroid) =>
+            {
+                if (asteroid is PartOfAsteroid)
+                    return;
+
+                _enemies.Simulate(asteroid.CreatePart());
+                _enemies.Simulate(asteroid.CreatePart());
+                _enemies.Simulate(asteroid.CreatePart());
+                _enemies.Simulate(asteroid.CreatePart());
+            });
+
+            yield return If((Ship ship, Enemy enemy) =>
+            {
+                GameEnd?.Invoke();
+            });
+        }
+
+        private Record If<T1, T2>(Action<T1, T2> action)
+        {
+            return new Record<T1, T2>(action);
+        }
+    }
+}
