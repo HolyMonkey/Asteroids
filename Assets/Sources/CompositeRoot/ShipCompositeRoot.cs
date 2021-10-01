@@ -41,7 +41,7 @@ namespace CompositeRoot
             _transformableView.Init(_shipModel, _camera);
 
             _bulletsSimulation = new BulletsSimulation();
-            _laserGunRollback = new LaserGunRollback(_laserGun, 3F);
+            _laserGunRollback = new LaserGunRollback(_laserGun, Config.LaserCooldown);
         }
 
         public void DisableShip()
