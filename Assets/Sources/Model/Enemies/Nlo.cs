@@ -16,7 +16,8 @@ namespace Asteroids.Model
 
         public override void Update(float deltaTime)
         {
-            Position = Vector2.MoveTowards(Position, _target.Position, _speed * deltaTime);
+            Vector2 nextPosition = Vector2.MoveTowards(Position, _target.Position, _speed * deltaTime);
+            MoveTo(nextPosition);
             LookAt(_target.Position);
         }
 

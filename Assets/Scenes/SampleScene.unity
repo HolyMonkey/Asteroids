@@ -534,7 +534,6 @@ GameObject:
   - component: {fileID: 680665657}
   - component: {fileID: 680665659}
   - component: {fileID: 680665654}
-  - component: {fileID: 680665658}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -551,7 +550,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 680665653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bef8e5aef082e4fb2813f02d1368c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 80bc1618725e6a5448b3576229325241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &680665655
@@ -647,18 +646,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 1.12}
   m_EdgeRadius: 0
---- !u!114 &680665658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680665653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f191ce631aab81249ad8b0564e585177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &680665659
 Rigidbody2D:
   serializedVersion: 4
@@ -1267,13 +1254,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1581576387}
-  - component: {fileID: 1581576393}
   - component: {fileID: 1581576386}
   - component: {fileID: 1581576388}
   - component: {fileID: 1581576389}
-  - component: {fileID: 1581576391}
   - component: {fileID: 1581576390}
-  - component: {fileID: 1581576392}
   m_Layer: 0
   m_Name: _CompositeRoot
   m_TagString: Untagged
@@ -1288,14 +1272,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581576385}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28355239b39176e409bd2e8e93ceb55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transformableView: {fileID: 680665654}
-  _bulletsViewFactory: {fileID: 1581576389}
+  _shipPresenter: {fileID: 680665654}
   _camera: {fileID: 963194227}
+  _factory: {fileID: 1581576389}
+  _endGameWindow: {fileID: 729121249}
 --- !u!4 &1581576387
 Transform:
   m_ObjectHideFlags: 0
@@ -1349,13 +1334,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581576385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d0a4a1908fb674fbd2007a67a2bb19, type: 3}
+  m_Script: {fileID: 11500000, guid: 066855ac8cb9b874588334dc958f8d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  _router: {fileID: 1581576392}
-  _defaultBulletTemplate: {fileID: -2268125191792454124, guid: 9ac0a761c39837c438fc2f5cbde37379, type: 3}
-  _laserBulletTemplate: {fileID: -937530412264702557, guid: 5945db22c3379bd48891ca1f8fa788e5, type: 3}
+  _laserGunBulletTemplate: {fileID: 1494122412635844189, guid: 5945db22c3379bd48891ca1f8fa788e5, type: 3}
+  _defaultGunBulletTemplate: {fileID: -1156457070632799784, guid: 9ac0a761c39837c438fc2f5cbde37379, type: 3}
+  _asteroidTemplate: {fileID: -5592899209094444788, guid: 7b512be35dd70a740b70ad3f11129f6b, type: 3}
+  _asteroidPartTemplate: {fileID: 2496268463148620810, guid: f9673b8bf2b901049947fef6ed94e495, type: 3}
+  _nloTemplate: {fileID: -3177811691921934883, guid: 227e6133de9075a44aa0ad05e2399431, type: 3}
 --- !u!114 &1581576390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,60 +1352,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581576385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81eebecd6a2b1f24db6495e8352b0eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: aaba5bdf6bb05064bbf8b5719df5394a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 963194227}
-  _router: {fileID: 1581576392}
-  _asteroid: {fileID: 8242772678581347395, guid: 7b512be35dd70a740b70ad3f11129f6b, type: 3}
-  _partOfAsteroid: {fileID: 1457799033967114595, guid: f9673b8bf2b901049947fef6ed94e495, type: 3}
-  _nlo: {fileID: 5144605620924001717, guid: 227e6133de9075a44aa0ad05e2399431, type: 3}
---- !u!114 &1581576391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581576385}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8028b2bc9fd9ca49a7b5985d8cc2aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _viewFactory: {fileID: 1581576390}
-  _ship: {fileID: 1581576386}
---- !u!114 &1581576392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581576385}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824eb8bdcb2e31d4f9423972b9a665fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemiesRoot: {fileID: 1581576391}
-  _shipRoot: {fileID: 1581576386}
-  _endGameWindow: {fileID: 729121249}
-  _shipEventsBroadcaster: {fileID: 680665658}
---- !u!114 &1581576393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581576385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d8dbcba09d97854d9f8123f150f2dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _order:
-  - {fileID: 1581576386}
-  - {fileID: 1581576391}
-  - {fileID: 1581576392}
+  _factory: {fileID: 1581576389}
+  _init: {fileID: 1581576386}
 --- !u!1 &1724014138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23859c3c2e75bee49a1c80e317f6b9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ship: {fileID: 1581576386}
+  _init: {fileID: 1581576386}
   _positionLabel: {fileID: 517559359}
   _rotationLabel: {fileID: 1559162152}
   _speedLabel: {fileID: 1557420060}

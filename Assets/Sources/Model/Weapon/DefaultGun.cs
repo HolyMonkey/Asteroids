@@ -5,9 +5,17 @@ namespace Asteroids.Model
 {
     public class DefaultGun
     {
-        public event Action<Bullet> Shot;
+        protected readonly Ship Ship;
+
+        public DefaultGun(Ship ship)
+        {
+            Ship = ship;
+        }
 
         public virtual bool CanShoot() => true;
+
+        public event Action<Bullet> Shot;
+
 
         public void Shoot()
         {
@@ -18,6 +26,6 @@ namespace Asteroids.Model
             Shot?.Invoke(bullet);
         }
 
-        protected virtual Bullet GetBullet() => new DefaultBullet();
+        protected virtual Bullet GetBullet() => new DefaultBullet(Ship.Position, Ship.Forward, Config.DefaultBulletSpeed);
     }
 }

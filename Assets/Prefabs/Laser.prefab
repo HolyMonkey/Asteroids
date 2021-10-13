@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 6478326181387952803}
   - component: {fileID: 8381023526363866301}
   - component: {fileID: 8864712561646273570}
-  - component: {fileID: -937530412264702557}
-  - component: {fileID: 2380316914952706091}
   - component: {fileID: 8233190670634332126}
   - component: {fileID: 8314589716755157351}
+  - component: {fileID: 1494122412635844189}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,30 +99,6 @@ Halo:
     serializedVersion: 2
     rgba: 4281282559
   m_Size: 1
---- !u!114 &-937530412264702557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7530022156930753192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bef8e5aef082e4fb2813f02d1368c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2380316914952706091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7530022156930753192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f191ce631aab81249ad8b0564e585177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8233190670634332126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,3 +146,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1494122412635844189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530022156930753192}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114ef28fda8329a448e4763ed6ca3ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

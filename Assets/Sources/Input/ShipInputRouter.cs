@@ -6,19 +6,15 @@ using UnityEngine.InputSystem;
 public class ShipInputRouter
 {
     private ShipInput _input;
-    private InertMovement _inertMovement;
-    private ShipMovement _shipMovement;
+    private Ship _ship;
 
     private DefaultGun _firstGunSlot;
     private DefaultGun _secondGunSlot;
 
-    public float Speed => _inertMovement.Acceleration.magnitude;
-
-    public ShipInputRouter(ShipMovement shipMovement)
+    public ShipInputRouter(Ship ship)
     {
         _input = new ShipInput();
-        _inertMovement = new InertMovement();
-        _shipMovement = shipMovement;
+        _ship = ship;
     }
 
     public void OnEnable()
@@ -38,11 +34,10 @@ public class ShipInputRouter
     public void Update()
     {
         if (MoveForwardPerformed())
-            _inertMovement.Accelerate(_shipMovement.Forward, Time.deltaTime);
+            _ship.Accelerate(Time.deltaTime);
         else
-            _inertMovement.Slowdown(Time.deltaTime);
+            _ship.Slowdown(Time.deltaTime);
 
-        _shipMovement.Move(_inertMovement.Acceleration);
         TryRotate();
     }
 
@@ -84,6 +79,6 @@ public class ShipInputRouter
         float direction = _input.Ship.Rotate.ReadValue<float>();
 
         if(direction != 0)
-            _shipMovement.Rotate(direction, Time.deltaTime);
+            _ship.Rotate(direction, Time.deltaTime);
     }
 }

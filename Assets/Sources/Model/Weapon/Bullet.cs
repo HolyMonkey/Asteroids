@@ -1,27 +1,28 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Asteroids.Model
 {
-    public abstract class Bullet
+    public abstract class Bullet : Transformable, IUpdatable
     {
         public readonly float Lifetime;
         public readonly float Speed;
 
-        protected Bullet(float lifetime, float speed)
+        private float _accumulatedTime;
+
+        protected Bullet(Vector2 position, float lifetime, float speed) : base(position, 0)
         {
             Lifetime = lifetime;
             Speed = speed;
         }
-    }
 
-    public class LaserGunBullet : Bullet
-    {
-        public LaserGunBullet() : base(0.5F, 0F) { }
-    }
+        public virtual void Update(float deltaTime)
+        {
+            _accumulatedTime += Time.deltaTime;
 
-    public class DefaultBullet : Bullet
-    {
-        public DefaultBullet() : base(10F, 0.6F) { }
+            if(_accumulatedTime >= Lifetime)
+            {
+                Destroy();
+            }
+        }
     }
 }

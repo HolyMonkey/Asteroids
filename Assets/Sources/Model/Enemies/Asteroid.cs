@@ -15,7 +15,7 @@ namespace Asteroids.Model
 
         public override void Update(float deltaTime)
         {
-            Position = Position + _direction * _speed * deltaTime;
+            MoveTo(Position + _direction * _speed * deltaTime);
         }
 
         public PartOfAsteroid CreatePart()

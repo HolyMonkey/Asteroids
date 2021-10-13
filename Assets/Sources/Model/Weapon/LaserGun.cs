@@ -12,7 +12,7 @@ namespace Asteroids.Model
 
         public event Action ShotAdd;
 
-        public LaserGun(int bullets, int bulletsPerShot = 1)
+        public LaserGun(Ship ship, int bullets, int bulletsPerShot = 1) : base(ship)
         {
             if (bulletsPerShot < 0)
                 throw new ArgumentOutOfRangeException(nameof(bulletsPerShot));
@@ -39,7 +39,7 @@ namespace Asteroids.Model
         protected override Bullet GetBullet()
         {
             Bullets -= _bulletsPerShot;
-            return new LaserGunBullet();
+            return new LaserGunBullet(Ship.Position, Ship.Forward);
         }
     }
 }
