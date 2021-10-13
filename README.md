@@ -7,3 +7,7 @@
 Здесь ванильная версия Unity без применения Zenject и etc. 
 
 Подробней о курсе - https://ijunior.ru/napilnik?utm_source=github&utm_content=asteroids
+
+
+P.S: 
+Задача - https://docs.google.com/document/d/1_2FPU2l_L7s5MPc9GJwN6QKcRNTRWgqKJasJ07PMXbY/edit?usp=sharing
