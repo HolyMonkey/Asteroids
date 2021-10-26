@@ -10,6 +10,7 @@ public class PresentersFactory : MonoBehaviour
     [SerializeField] private Presenter _asteroidTemplate;
     [SerializeField] private Presenter _asteroidPartTemplate;
     [SerializeField] private Presenter _nloTemplate;
+
     public void CreateBullet(Bullet bullet)
     {
         if(bullet is LaserGunBullet)

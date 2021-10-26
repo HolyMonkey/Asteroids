@@ -4,7 +4,7 @@ using Asteroids.Model;
 public class SpawnExample : MonoBehaviour
 {
     [SerializeField] private PresentersFactory _factory;
-    [SerializeField] private Init _init;
+    [SerializeField] private Root _init;
 
     private int _index;
     private float _secondsPerIndex = 1f;

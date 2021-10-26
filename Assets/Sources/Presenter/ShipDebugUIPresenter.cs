@@ -4,7 +4,7 @@ using Asteroids.Model;
 
 public class ShipDebugUIPresenter : MonoBehaviour
 {
-    [SerializeField] private Init _init;
+    [SerializeField] private Root _init;
 
     [SerializeField] private Text _positionLabel;
     [SerializeField] private Text _rotationLabel;

@@ -7,6 +7,7 @@ namespace Asteroids.Model
     {
         public virtual Vector2 Position { get; private set; }
         public float Rotation { get; private set; }
+        public Vector2 Forward => Quaternion.Euler(0, 0, Rotation) * Vector3.up;
 
         public event Action Moved;
         public event Action Rotated;

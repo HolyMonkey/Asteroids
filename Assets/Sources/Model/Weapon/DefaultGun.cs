@@ -1,21 +1,19 @@
 ﻿using System;
-using UnityEngine;
 
 namespace Asteroids.Model
 {
     public class DefaultGun
     {
-        protected readonly Ship Ship;
+        protected readonly Transformable _point;
 
-        public DefaultGun(Ship ship)
+        public DefaultGun(Transformable point)
         {
-            Ship = ship;
+            _point = point;
         }
 
         public virtual bool CanShoot() => true;
 
         public event Action<Bullet> Shot;
-
 
         public void Shoot()
         {
@@ -26,6 +24,6 @@ namespace Asteroids.Model
             Shot?.Invoke(bullet);
         }
 
-        protected virtual Bullet GetBullet() => new DefaultBullet(Ship.Position, Ship.Forward, Config.DefaultBulletSpeed);
+        protected virtual Bullet GetBullet() => new DefaultBullet(_point.Position, _point.Forward, Config.DefaultBulletSpeed);
     }
 }

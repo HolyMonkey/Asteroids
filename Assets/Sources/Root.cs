@@ -1,7 +1,8 @@
 using Asteroids.Model;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Init : MonoBehaviour
+public class Root : MonoBehaviour
 {
     [SerializeField] private ShipPresenter _shipPresenter;
     [SerializeField] private Camera _camera;
@@ -35,7 +36,7 @@ public class Init : MonoBehaviour
             .BindGunToSecondSlot(_laserGun);
 
         _shipPresenter.Init(_shipModel, _camera);
-        _shipPresenter.Init(this, _endGameWindow);
+        _shipPresenter.Init(this);
 
         _laserGunRollback = new LaserGunRollback(_laserGun, Config.LaserCooldown);
     }
@@ -46,6 +47,7 @@ public class Init : MonoBehaviour
 
         _baseGun.Shot += OnShot;
         _laserGun.Shot += OnShot;
+        _shipModel.Destroying += OnShipDestroying;
     }
 
     private void OnDisable()
@@ -54,6 +56,7 @@ public class Init : MonoBehaviour
 
         _baseGun.Shot -= OnShot;
         _laserGun.Shot -= OnShot;
+        _shipModel.Destroying -= OnShipDestroying;
     }
 
     private void Update()
@@ -65,5 +68,10 @@ public class Init : MonoBehaviour
     private void OnShot(Bullet bullet)
     {
         _factory.CreateBullet(bullet);
+    }
+
+    private void OnShipDestroying()
+    {
+        _endGameWindow.Show(0, () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
 }
