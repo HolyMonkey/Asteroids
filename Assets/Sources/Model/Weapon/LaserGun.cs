@@ -39,7 +39,7 @@ namespace Asteroids.Model
         protected override Bullet GetBullet()
         {
             Bullets -= _bulletsPerShot;
-            return new LaserGunBullet(Ship.Position, Ship.Forward);
+            return new LaserGunBullet(_point.Position, _point.Forward);
         }
     }
 }
