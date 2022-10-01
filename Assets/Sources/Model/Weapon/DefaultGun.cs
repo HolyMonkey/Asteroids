@@ -4,12 +4,9 @@ namespace Asteroids.Model
 {
     public class DefaultGun
     {
-        protected readonly Transformable _point;
+        protected readonly Transformable Point;
 
-        public DefaultGun(Transformable point)
-        {
-            _point = point;
-        }
+        public DefaultGun(Transformable point) => Point = point;
 
         public virtual bool CanShoot() => true;
 
@@ -24,6 +21,7 @@ namespace Asteroids.Model
             Shot?.Invoke(bullet);
         }
 
-        protected virtual Bullet GetBullet() => new DefaultBullet(_point.Position, _point.Forward, Config.DefaultBulletSpeed);
+        protected virtual Bullet GetBullet() => 
+            new DefaultBullet(Point.Position, Point.Forward, Config.DefaultBulletSpeed);
     }
 }

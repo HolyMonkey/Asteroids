@@ -5,7 +5,7 @@ namespace Asteroids.Model
 {
     public class LaserGun : DefaultGun
     {
-        private int _bulletsPerShot;
+        private readonly int _bulletsPerShot;
 
         public int Bullets { get; private set; }
         public int MaxBullets { get; private set; }
@@ -39,7 +39,7 @@ namespace Asteroids.Model
         protected override Bullet GetBullet()
         {
             Bullets -= _bulletsPerShot;
-            return new LaserGunBullet(_point.Position, _point.Forward);
+            return new LaserGunBullet(Point.Position, Point.Forward);
         }
     }
 }

@@ -14,6 +14,7 @@ public class ShipPresenter : Presenter
         if (collision.gameObject.CompareTag("Enemy"))
         {
             _init.DisableShip();
+            DestroyCompose();
         }
     }
 }

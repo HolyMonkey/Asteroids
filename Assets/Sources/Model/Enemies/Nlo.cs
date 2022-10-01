@@ -21,9 +21,7 @@ namespace Asteroids.Model
             LookAt(_target.Position);
         }
 
-        private void LookAt(Vector2 point)
-        {
+        private void LookAt(Vector2 point) => 
             Rotate(Vector2.SignedAngle(Quaternion.Euler(0, 0, Rotation) * Vector3.up, (Position - point)));
-        }
     }
 }
