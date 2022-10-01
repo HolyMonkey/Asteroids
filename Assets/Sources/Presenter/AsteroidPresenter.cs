@@ -7,10 +7,8 @@ public class AsteroidPresenter : Presenter
 
     public new Asteroid Model => base.Model as Asteroid;
 
-    public void Init(PresentersFactory factory)
-    {
+    public void Init(PresentersFactory factory) => 
         _factory = factory;
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

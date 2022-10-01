@@ -13,27 +13,25 @@ namespace Asteroids.Model
         public event Action Rotated;
         public event Action Destroying;
 
-        public Transformable(Vector2 position, float rotation)
+        protected Transformable(Vector2 position, float rotation)
         {
             Position = position;
             Rotation = rotation;
         }
 
-        public void Rotate(float delta)
+        protected void Rotate(float delta)
         {
             Rotation = Mathf.Repeat(Rotation + delta, 360);
             Rotated?.Invoke();
         }
 
-        public void MoveTo(Vector2 position)
+        protected void MoveTo(Vector2 position)
         {
             Position = position;
             Moved?.Invoke();
         }
 
-        public void Destroy()
-        {
+        public void Destroy() => 
             Destroying?.Invoke();
-        }
     }
 }

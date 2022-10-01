@@ -35,18 +35,12 @@ public class ShipDebugUIPresenter : MonoBehaviour
         _laserRollbackLabel.text = $"To Rollback: {(_init.LaserGunRollback.Cooldown - _init.LaserGunRollback.AccumulatedTime):0.0}";
     }
 
-    private void OnLaserGunShot(Bullet bullet)
-    {
+    private void OnLaserGunShot(Bullet bullet) => 
         UpdateLasersCount();
-    }
 
-    private void OnLaserGunShotAdd()
-    {
+    private void OnLaserGunShotAdd() => 
         UpdateLasersCount();
-    }
 
-    private void UpdateLasersCount()
-    {
+    private void UpdateLasersCount() => 
         _laserBulletsLabel.text = $"Lasers: {_init.LaserGun.Bullets} / {_init.LaserGun.MaxBullets}";
-    }
 }

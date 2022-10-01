@@ -1,4 +1,5 @@
 using Asteroids.Model;
+using Sources.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,10 +20,8 @@ public class Root : MonoBehaviour
     public LaserGun LaserGun => _laserGun;
     public LaserGunRollback LaserGunRollback => _laserGunRollback;
 
-    public void DisableShip()
-    {
+    public void DisableShip() => 
         _shipInputRouter.OnDisable();
-    }
 
     private void Awake()
     {
@@ -65,13 +64,9 @@ public class Root : MonoBehaviour
         _laserGunRollback.Tick(Time.deltaTime);
     }
 
-    private void OnShot(Bullet bullet)
-    {
+    private void OnShot(Bullet bullet) => 
         _factory.CreateBullet(bullet);
-    }
 
-    private void OnShipDestroying()
-    {
+    private void OnShipDestroying() => 
         _endGameWindow.Show(0, () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
-    }
 }

@@ -6,9 +6,9 @@ public class Presenter : MonoBehaviour
     private Camera _camera;
     private Transformable _model;
 
-    private IUpdatable _updatable = null;
+    private IUpdatable _updatable;
 
-    public Transformable Model => _model;
+    protected Transformable Model => _model;
 
     public void Init(Transformable model, Camera camera)
     {
@@ -38,30 +38,21 @@ public class Presenter : MonoBehaviour
         _model.Destroying -= OnDestroying;
     }
 
-    private void Update() => _updatable?.Update(Time.deltaTime);
+    private void Update() =>
+        _updatable?.Update(Time.deltaTime);
 
-    private Vector3 GetViewportPosition(Transformable transformable)
-    {
-        return new Vector3(transformable.Position.x, transformable.Position.y, 1);
-    }
+    private Vector3 GetViewportPosition(Transformable transformable) =>
+        new(transformable.Position.x, transformable.Position.y, 1);
 
-    private void OnMoved()
-    {
+    private void OnMoved() => 
         transform.position = _camera.ViewportToWorldPoint(GetViewportPosition(_model));
-    }
 
-    private void OnRotated()
-    {
+    private void OnRotated() => 
         transform.rotation = Quaternion.Euler(0, 0, _model.Rotation);
-    }
 
-    private void OnDestroying()
-    {
+    private void OnDestroying() => 
         Destroy(gameObject);
-    }
 
-    protected void DestroyCompose()
-    {
+    protected void DestroyCompose() => 
         _model.Destroy();
-    }
 }
