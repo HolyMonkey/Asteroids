@@ -1,16 +1,22 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Asteroids.Model
 {
     public class Ship : Transformable, IUpdatable
     {
-        public Ship(Vector2 position, float rotation) : base(position, rotation) { }
+        public Ship(Vector2 position, float rotation, int health) : base(position, rotation)
+        {
+            CurrentHealth = health;
+        }
 
         private readonly float _unitsPerSecond = 0.001f;
         private readonly float _maxSpeed = 0.0015f;
         private readonly float _secondsToStop = 1f;
         private readonly float _degreesPerSecond = 180;
+
+        public int CurrentHealth { get; private set; }
 
         public Vector2 Acceleration { get; private set; }
 
@@ -38,6 +44,16 @@ namespace Asteroids.Model
         public void Update(float deltaTime)
         {
             Move(Acceleration);
+        }
+
+        public void TakeDamage()
+        {
+            CurrentHealth--;
+
+            if (CurrentHealth == 0)
+            {
+                Destroy();
+            }
         }
 
         private void Move(Vector2 delta)

@@ -6,12 +6,16 @@ namespace Asteroids.Model
     public class Nlo : Enemy
     {
         private readonly float _speed;
-        private readonly Transformable _target;
+        private Transformable _target;
 
-        public Nlo(Transformable target, Vector2 position, float speed) : base(position, 0)
+        public Nlo(Vector2 position, float speed) : base(position, 0)
+        {
+            _speed = speed;
+        }
+
+        public void SetupTarget(Transformable target)
         {
             _target = target;
-            _speed = speed;
         }
 
         public override void Update(float deltaTime)

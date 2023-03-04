@@ -24,9 +24,16 @@ public class SpawnExample : MonoBehaviour
     {
         float chance = Random.Range(0, 100);
 
-        if (chance < 20)
+        if (chance < 40)
         {
-            _factory.CreateNlo(new Nlo(_init.Ship, GetRandomPositionOutsideScreen(), Config.NloSpeed));
+            var nlo = new Nlo(GetRandomPositionOutsideScreen(), Config.NloSpeed);
+            var nlo2 = new Nlo(GetRandomPositionOutsideScreen(), Config.NloSpeed);
+            
+            _factory.CreateNlo(nlo);
+            _factory.CreateNlo(nlo2);
+            
+            nlo.SetupTarget(nlo2);
+            nlo2.SetupTarget(nlo);
         }
         else
         {
